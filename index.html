@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="DealFinder helps you compare products, read shopping tips, and discover useful deals in Pakistan.">
+<title>DealFinder — Smart Shopping, Earn Better</title>
+<style>
+:root{--navy:#10263d;--green:#08a968;--mint:#eafaf3;--ink:#182b3e;--muted:#617387;--line:#e3ebf0;--white:#fff;--red:#e53b43}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans",sans-serif;color:var(--ink);background:#f6f9fb;line-height:1.55}
+a{color:inherit}.top{background:var(--navy);color:#dbe7f2;padding:9px 5%;font-size:13px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+header{background:white;border-bottom:1px solid var(--line);padding:18px 5%;display:flex;align-items:center;gap:24px;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:800;font-size:30px;letter-spacing:-1px;color:var(--navy);text-decoration:none}.brand span{color:var(--green)}.tagline{font-size:12px;color:var(--muted);margin-top:-5px}
+.search{display:flex;flex:1;max-width:540px;min-width:220px}.search input{width:100%;padding:13px 14px;border:1px solid #d6e0e8;border-radius:9px 0 0 9px;font-size:15px}.search button,.btn{background:var(--green);color:white;border:0;padding:12px 18px;border-radius:0 9px 9px 0;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}.nav{display:flex;gap:10px;flex-wrap:wrap;padding:0 5%;background:white;border-bottom:1px solid var(--line)}.nav a{padding:13px 15px;text-decoration:none;font-size:14px;font-weight:700}.nav a:first-child{background:var(--green);color:white}
+.hero{margin:0;background:linear-gradient(115deg,#10263d,#0e5c5a 70%,#12b778);color:white;padding:48px 5%;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:25px;min-height:290px}.hero h1{font-size:clamp(30px,4vw,46px);line-height:1.12;margin:0 0 15px}.hero h1 em{font-style:normal;color:#54efb1}.hero p{max-width:650px;color:#e1f8ef}.urdu{font-family:Arial,"Noto Nastaliq Urdu",sans-serif;direction:rtl}.hero-art{font-size:90px;text-align:center;filter:drop-shadow(0 8px 10px #0018)}.hero .btn{border-radius:8px;margin-top:10px}
+.wrap{max-width:1240px;margin:auto;padding:30px 5%}.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{background:white;border:1px solid var(--line);border-radius:12px;padding:16px 8px;text-align:center;cursor:pointer;font-weight:700}.cat span{display:block;font-size:27px;margin-bottom:5px}.cat:hover,.cat.active{border-color:var(--green);background:var(--mint)}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap;margin:30px 0 16px}.sectionhead h2{margin:0;font-size:25px}.sectionhead p{margin:3px 0 0;color:var(--muted);font-size:14px}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:white;border:1px solid var(--line);border-radius:13px;padding:16px;display:flex;flex-direction:column;min-width:0;box-shadow:0 3px 12px #1231}.product .pic{height:115px;background:linear-gradient(140deg,#f4f8fb,#e6f6ee);border-radius:10px;display:grid;place-items:center;font-size:58px;margin-bottom:13px}.pill{font-size:11px;background:#fff0f0;color:var(--red);padding:3px 8px;border-radius:20px;align-self:start;font-weight:700}.product h3{font-size:16px;margin:9px 0 4px}.product p{font-size:13px;color:var(--muted);margin:0 0 10px;flex:1}.price{font-size:18px;font-weight:800;color:#d82d38}.note{font-size:11px;color:var(--muted);margin:5px 0 12px}.product .btn{border-radius:7px;text-align:center;width:100%;padding:10px}
+.notice{background:#fff8e8;border:1px solid #f0dfb5;border-radius:10px;padding:14px 16px;font-size:13px;color:#66511e;margin-top:18px}
+.guide{background:linear-gradient(120deg,#eafaf3,#f8fcff);border-top:1px solid #d8f2e5;border-bottom:1px solid #d8f2e5}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{background:white;border:1px solid #dceee5;border-radius:12px;padding:17px}.num{background:var(--green);color:white;border-radius:50%;width:28px;height:28px;display:grid;place-items:center;font-weight:800}.step h3{font-size:15px;margin:10px 0 6px}.step p{font-size:13px;color:var(--muted);margin:0 0 10px}.step .urdu{font-size:13px;color:#187c56}
+.bloggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.blog{background:white;border:1px solid var(--line);border-radius:12px;padding:19px}.blog h3{margin:0 0 8px}.blog p{font-size:14px;color:var(--muted)}
+footer{background:var(--navy);color:#dbe7f2;padding:30px 5%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}footer a{color:white}.footlinks{display:flex;gap:15px;flex-wrap:wrap;font-size:13px}
+#empty{display:none;padding:20px;background:white;border-radius:10px;color:var(--muted)}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{display:none}.products{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.categories{grid-template-columns:repeat(3,1fr)}.bloggrid{grid-template-columns:1fr}}
+@media(max-width:480px){header{gap:12px}.brand{font-size:25px}.search{min-width:100%}.products{grid-template-columns:1fr 1fr;gap:9px}.product{padding:10px}.product .pic{height:85px;font-size:43px}.product h3{font-size:14px}.steps{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.wrap{padding:24px 4%}.hero{padding:35px 5%}}
+</style>
+</head>
+<body>
+<div class="top"><span>Smart Deals　|　Honest Reviews　|　Better Choices</span><span id="toplang">Made for shoppers in Pakistan 🇵🇰</span></div>
+<header>
+  <div><a class="brand" href="#" aria-label="DealFinder home">🛒 Deal<span>Finder</span></a><div class="tagline" id="tagline">Smart Shopping | Earn Better</div></div>
+  <form class="search" id="searchForm"><input id="searchInput" type="search" placeholder="Search products or categories..." aria-label="Search products"><button id="searchButton">Search</button></form>
+  <button class="btn" id="langToggle" type="button" style="border-radius:8px">اردو / EN</button>
+</header>
+<nav class="nav"><a href="#home" id="navHome">Home</a><a href="#deals" id="navDeals">Featured Deals</a><a href="#categories" id="navCategories">Categories</a><a href="#guides" id="navGuides">How It Works</a><a href="#blog" id="navBlog">Shopping Tips</a></nav>
+<section class="hero" id="home">
+  <div><h1 id="heroTitle">Find Better Deals.<br><em>Shop Smarter.</em></h1><p id="heroDesc">Simple product guides, honest comparisons, and useful shopping tips to help you choose confidently.</p><p class="urdu" id="heroUrdu">بہتر ڈیلز تلاش کریں، سمجھداری سے خریداری کریں۔</p><a href="#deals" class="btn" id="heroBtn">Explore Deals →</a></div>
+  <div class="hero-art" aria-hidden="true">💻　📱<br>🎧　⌚</div>
+</section>
+<main>
+<section class="wrap" id="categories">
+  <div class="sectionhead"><div><h2 id="catTitle">Shop by Category</h2><p id="catDesc">Choose a category to filter the recommendations below.</p></div></div>
+  <div class="categories">
+    <button class="cat active" data-category="all"><span>✨</span><span data-en="All" data-ur="تمام">All</span></button>
+    <button class="cat" data-category="electronics"><span>📱</span><span data-en="Electronics" data-ur="الیکٹرانکس">Electronics</span></button>
+    <button class="cat" data-category="fashion"><span>👕</span><span data-en="Fashion" data-ur="فیشن">Fashion</span></button>
+    <button class="cat" data-category="home"><span>🛋️</span><span data-en="Home & Living" data-ur="گھر">Home & Living</span></button>
+    <button class="cat" data-category="beauty"><span>🧴</span><span data-en="Beauty" data-ur="بیوٹی">Beauty</span></button>
+    <button class="cat" data-category="digital"><span>🧰</span><span data-en="Digital Tools" data-ur="ڈیجیٹل ٹولز">Digital Tools</span></button>
+  </div>
+  <div class="sectionhead" id="deals"><div><h2 id="dealsTitle">🔥 Featured Recommendations</h2><p id="dealsDesc">Starter examples — replace with products and prices you have verified.</p></div></div>
+  <div class="products" id="productGrid">
+    <article class="product" data-category="electronics" data-search="phone smartphone mobile electronics"><div class="pic">📱</div><span class="pill">Example listing</span><h3 data-en="Smartphone buying guide" data-ur="اسمارٹ فون خریدنے کی رہنمائی">Smartphone buying guide</h3><p data-en="Compare battery, camera, storage and warranty before buying." data-ur="خریدنے سے پہلے بیٹری، کیمرہ، اسٹوریج اور وارنٹی کا موازنہ کریں۔">Compare battery, camera, storage and warranty before buying.</p><div class="price" data-en="Check current price" data-ur="موجودہ قیمت دیکھیں">Check current price</div><div class="note">No price verified • Update before publishing</div><a class="btn affiliate-link" href="#affiliate-setup" data-en="Find a deal →" data-ur="ڈیل دیکھیں ←">Find a deal →</a></article>
+    <article class="product" data-category="electronics" data-search="headphones earbuds audio electronics"><div class="pic">🎧</div><span class="pill">Example listing</span><h3 data-en="Headphones & earbuds" data-ur="ہیڈفون اور ایئربڈز">Headphones & earbuds</h3><p data-en="Check comfort, microphone quality, battery life and returns." data-ur="آرام، مائیکروفون، بیٹری اور واپسی کی پالیسی دیکھیں۔">Check comfort, microphone quality, battery life and returns.</p><div class="price" data-en="Compare options" data-ur="آپشنز کا موازنہ">Compare options</div><div class="note">No price verified • Update before publishing</div><a class="btn affiliate-link" href="#affiliate-setup" data-en="Compare deals →" data-ur="ڈیلز کا موازنہ ←">Compare deals →</a></article>
+    <article class="product" data-category="fashion" data-search="shoes clothing fashion sneakers"><div class="pic">👟</div><span class="pill">Example listing</span><h3 data-en="Everyday shoes" data-ur="روزمرہ کے جوتے">Everyday shoes</h3><p data-en="Compare sizing, materials, seller reviews and return policy." data-ur="سائز، میٹریل، فروخت کنندہ کے ریویوز اور واپسی کی پالیسی دیکھیں۔">Compare sizing, materials, seller reviews and return policy.</p><div class="price" data-en="Check availability" data-ur="دستیابی دیکھیں">Check availability</div><div class="note">No price verified • Update before publishing</div><a class="btn affiliate-link" href="#affiliate-setup" data-en="See options →" data-ur="آپشنز دیکھیں ←">See options →</a></article>
+    <article class="product" data-category="home" data-search="home living desk lamp kitchen home"><div class="pic">💡</div><span class="pill">Example listing</span><h3 data-en="Useful home essentials" data-ur="گھر کی مفید اشیاء">Useful home essentials</h3><p data-en="Look at durability, energy use, dimensions and customer photos." data-ur="پائیداری، بجلی کے استعمال، سائز اور خریداروں کی تصاویر دیکھیں۔">Look at durability, energy use, dimensions and customer photos.</p><div class="price" data-en="Compare prices" data-ur="قیمتوں کا موازنہ">Compare prices</div><div class="note">No price verified • Update before publishing</div><a class="btn affiliate-link" href="#affiliate-setup" data-en="Explore items →" data-ur="اشیاء دیکھیں ←">Explore items →</a></article>
+  </div>
+  <div id="empty">No matching items. Try another search or category.</div>
+  <div class="notice" id="disclosure"><strong>Affiliate disclosure:</strong> This site is a starter template. It currently has no active affiliate links. If you later add affiliate links, disclose them clearly and only use links issued to you by the affiliate program. Prices and availability can change.</div>
+</section>
+<section class="guide" id="guides"><div class="wrap">
+  <div class="sectionhead"><div><h2 id="guideTitle">🚀 How to Launch & Earn</h2><p id="guideDesc">A realistic beginner roadmap — no guaranteed earnings.</p></div></div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h3>Publish for free</h3><p>Host this static site with GitHub Pages or another free static host. You can start without buying a domain.</p><p class="urdu">اس ویب سائٹ کو مفت ہوسٹنگ پر شائع کریں۔ شروع میں اپنا ڈومین خریدنا ضروری نہیں۔</p></div>
+    <div class="step" id="affiliate-setup"><div class="num">2</div><h3>Choose a niche</h3><p>Start with one topic you understand, such as budget phones, accessories, or useful home products.</p><p class="urdu">ایک ایسا موضوع چنیں جسے آپ سمجھتے ہوں، مثلاً موبائل یا گھریلو اشیاء۔</p></div>
+    <div class="step"><div class="num">3</div><h3>Apply to affiliate programs</h3><p>Check current country eligibility, payment methods, and rules for programs such as Daraz Affiliate or other reputable networks. Approval is not automatic.</p><p class="urdu">ایفیلیئیٹ پروگرام کی پاکستان میں دستیابی، ادائیگی اور شرائط پہلے چیک کریں۔</p></div>
+    <div class="step"><div class="num">4</div><h3>Add your real links</h3><p>Replace each demo button's placeholder URL with your own approved tracking link. Never invent or copy another person's tracking link.</p><p class="urdu">نمونہ بٹنوں میں اپنے منظور شدہ ایفیلیئیٹ لنکس لگائیں۔</p></div>
+    <div class="step"><div class="num">5</div><h3>Write helpful reviews</h3><p>Explain pros, cons, who the product suits, and how you checked your facts. Don't claim you tested a product if you did not.</p><p class="urdu">سچی معلومات، فائدے اور نقصانات لکھیں۔ جس چیز کو آزمایا نہ ہو، اس کا دعویٰ نہ کریں۔</p></div>
+    <div class="step"><div class="num">6</div><h3>Share useful content</h3><p>Publish comparison guides and share them in relevant social groups without spam. Respect each platform's rules.</p><p class="urdu">مفید موازنہ لکھیں اور متعلقہ سوشل میڈیا پر بغیر اسپیم کے شیئر کریں۔</p></div>
+    <div class="step"><div class="num">7</div><h3>Build traffic over time</h3><p>Use clear titles, useful Urdu/English content, fast pages, and basic SEO. Results usually take consistent work.</p><p class="urdu">اچھے عنوانات، مفید مواد اور سرچ انجن کی بنیادی بہتری پر مستقل کام کریں۔</p></div>
+    <div class="step"><div class="num">8</div><h3>Track and improve</h3><p>Use the affiliate dashboard to check clicks and eligible sales. Follow payout thresholds, tax rules, and disclosure requirements.</p><p class="urdu">ڈیش بورڈ میں کلکس اور اہل فروخت دیکھیں اور ادائیگی کی شرائط پوری کریں۔</p></div>
+  </div>
+</div></section>
+<section class="wrap" id="blog"><div class="sectionhead"><div><h2 id="tipsTitle">Shopping Tips That Help</h2><p id="tipsDesc">Useful articles you can expand to build trust and search traffic.</p></div></div>
+  <div class="bloggrid">
+    <article class="blog"><h3>📱 How to choose a budget phone</h3><p>Compare performance, battery, camera, software updates, warranty and total price — not just the discount.</p><p class="urdu">صرف رعایت نہیں، کارکردگی، بیٹری، کیمرہ، اپڈیٹس اور وارنٹی بھی دیکھیں۔</p></article>
+    <article class="blog"><h3>🛍️ How to spot a good online deal</h3><p>Check the seller rating, recent reviews, return policy, delivery fee and price history when possible.</p><p class="urdu">فروخت کنندہ کی ریٹنگ، تازہ ریویوز، واپسی اور ڈیلیوری فیس ضرور دیکھیں۔</p></article>
+    <article class="blog"><h3>🔐 Shop safely online</h3><p>Use trusted sellers, avoid suspicious payment requests, and never share one-time passwords.</p><p class="urdu">قابلِ اعتماد دکاندار استعمال کریں اور اپنا OTP کسی کو نہ بتائیں۔</p></article>
+  </div>
+</section>
+</main>
+<footer><div><a class="brand" href="#" style="color:white">🛒 Deal<span>Finder</span></a><div class="tagline" style="color:#dbe7f2">Smart Shopping | Earn Better</div></div><div class="footlinks"><a href="#home">Home</a><a href="#guides">How it works</a><a href="#blog">Shopping tips</a><a href="#disclosure">Affiliate disclosure</a></div><div style="font-size:12px">© <span id="year"></span> DealFinder. Check all prices and links before publishing.</div></footer>
+<script>
+const translations={
+en:{tagline:"Smart Shopping | Earn Better",heroTitle:'Find Better Deals.<br><em>Shop Smarter.</em>',heroDesc:"Simple product guides, honest comparisons, and useful shopping tips to help you choose confidently.",heroUrdu:"بہتر ڈیلز تلاش کریں، سمجھداری سے خریداری کریں۔",heroBtn:"Explore Deals →",catTitle:"Shop by Category",catDesc:"Choose a category to filter the recommendations below.",dealsTitle:"🔥 Featured Recommendations",dealsDesc:"Starter examples — replace with products and prices you have verified.",guideTitle:"🚀 How to Launch & Earn",guideDesc:"A realistic beginner roadmap — no guaranteed earnings.",tipsTitle:"Shopping Tips That Help",tipsDesc:"Useful articles you can expand to build trust and search traffic.",search:"Search products or categories...",searchButton:"Search",empty:"No matching items. Try another search or category."},
+ur:{tagline:"سمجھداری سے خریداری | بہتر کمائی",heroTitle:'بہترین ڈیلز تلاش کریں۔<br><em>سمجھداری سے خریدیں۔</em>',heroDesc:"آسان پروڈکٹ گائیڈز، ایماندارانہ موازنہ اور مفید خریداری کے مشورے۔",heroUrdu:"بہتر ڈیلز تلاش کریں، سمجھداری سے خریداری کریں۔",heroBtn:"ڈیلز دیکھیں ←",catTitle:"کیٹیگری کے مطابق خریداری",catDesc:"نیچے سفارشات فلٹر کرنے کے لیے کیٹیگری منتخب کریں۔",dealsTitle:"🔥 نمایاں سفارشات",dealsDesc:"یہ نمونے ہیں؛ شائع کرنے سے پہلے تصدیق شدہ مصنوعات اور قیمتیں شامل کریں۔",guideTitle:"🚀 ویب سائٹ کیسے شروع کریں",guideDesc:"ابتدائی افراد کے لیے حقیقت پسندانہ رہنمائی — آمدنی کی ضمانت نہیں۔",tipsTitle:"مفید خریداری کے مشورے",tipsDesc:"اعتماد اور سرچ ٹریفک کے لیے ان مضامین کو بڑھائیں۔",search:"مصنوعات یا کیٹیگری تلاش کریں...",searchButton:"تلاش",empty:"کوئی نتیجہ نہیں ملا۔ دوسری تلاش یا کیٹیگری آزمائیں۔"}
+};
+let lang="en", category="all";
+const $=id=>document.getElementById(id);
+function setLang(next){lang=next;document.documentElement.lang=lang;document.documentElement.dir=lang==="ur"?"rtl":"ltr";const t=translations[lang];Object.entries(t).forEach(([k,v])=>{let el=$(k);if(el){if(k==="heroTitle")el.innerHTML=v;else if(k==="search")$("searchInput").placeholder=v;else if(k==="searchButton")$("searchButton").textContent=v;else if(k==="empty")el.textContent=v;else el.textContent=v;}});document.querySelectorAll("[data-en][data-ur]").forEach(el=>el.textContent=el.dataset[lang]);$("langToggle").textContent=lang==="en"?"اردو / EN":"EN / اردو";filterProducts();}
+function filterProducts(){let q=$("searchInput").value.toLowerCase().trim(), visible=0;document.querySelectorAll(".product").forEach(card=>{let okcat=category==="all"||card.dataset.category===category;let okq=!q||(card.innerText+" "+card.dataset.search).toLowerCase().includes(q);card.style.display=okcat&&okq?"flex":"none";if(okcat&&okq)visible++;});$("empty").style.display=visible?"none":"block";document.querySelectorAll(".cat").forEach(b=>b.classList.toggle("active",b.dataset.category===category));}
+document.querySelectorAll(".cat").forEach(b=>b.addEventListener("click",()=>{category=b.dataset.category;filterProducts();}));
+$("searchForm").addEventListener("submit",e=>{e.preventDefault();filterProducts();$("deals").scrollIntoView({behavior:"smooth"});});
+$("langToggle").addEventListener("click",()=>setLang(lang==="en"?"ur":"en"));
+document.querySelectorAll(".affiliate-link").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();alert(lang==="ur"?"یہ ایک نمونہ بٹن ہے۔ اسے شائع کرنے سے پہلے اپنے منظور شدہ ایفیلیئیٹ لنک سے تبدیل کریں۔":"This is a demo button. Replace it with your approved affiliate link before publishing.");}));
+$("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
